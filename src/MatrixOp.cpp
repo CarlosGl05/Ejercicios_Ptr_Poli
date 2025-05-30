@@ -1,8 +1,8 @@
 /**
- * @file TemplateClass.cpp
- * @brief Implementación de TemplateClass.
- * @date YYYY-MM-DD
- * @author Camilo Duque
+ * @file MatrixOp.cpp
+ * @brief Implementación de matrix
+ * @date 30/05/2025
+ * @author Carlos Gloria Cortes
  *
  */
 
