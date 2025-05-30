@@ -5,7 +5,6 @@
  */
 
 #include <iostream>
-
 #include "MatrixOp.h"
 
 int main() {
