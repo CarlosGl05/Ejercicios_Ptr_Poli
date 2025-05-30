@@ -15,6 +15,8 @@ class MatrixOp {
     void add(const MatrixOp *other, MatrixOp *result) const;
     using OpFunc = double(*)(double, double);
     void apply(const MatrixOp *A, const MatrixOp *B, MatrixOp *out, OpFunc op) const;
+    void forEachDiagonal(void (MatrixOp::*fn)(int i, int j) const) const;
+    void printAt(int i, int j) const;
 
    private:
     double *data_;

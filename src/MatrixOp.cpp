@@ -61,3 +61,18 @@ void MatrixOp::apply(const MatrixOp *A, const MatrixOp *B, MatrixOp *out, OpFunc
         }
     }
 }   
+
+// por cada diagonal
+void MatrixOp::forEachDiagonal(void (MatrixOp::*fn)(int i, int j) const) const {
+    for (int i = 0; i < rows_; ++i) {
+        for (int j = 0; j < cols_; ++j) {
+            if (i == j) {
+                (this->*fn)(i, j);
+            }
+        }
+    }
+}
+
+void MatrixOp::printAt(int i, int j) const {
+    std::cout << get(i, j) << " ";
+}
