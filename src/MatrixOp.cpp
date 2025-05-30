@@ -7,7 +7,7 @@
  */
 
 #include "MatrixOp.h"
-
+#include <stdexcept>
 #include <iostream>
 
 MatrixOp::MatrixOp(int rows, int cols)
@@ -99,4 +99,20 @@ MatrixOp MatrixOp::operator-(const MatrixOp &other) const {
         result.data_[k] = this->data_[k] - other.data_[k];
     }
     return result;
+}
+
+double MatrixOp::determinant() const {
+    if (rows_ == 2 && cols_ == 2) {
+        // |a b|
+        // |c d| = a*d - b*c
+        return get(0,0)*get(1,1) - get(0,1)*get(1,0);
+    } else if (rows_ == 3 && cols_ == 3) {
+        // Regla de Sarrus
+        double a = get(0,0), b = get(0,1), c = get(0,2);
+        double d = get(1,0), e = get(1,1), f = get(1,2);
+        double g = get(2,0), h = get(2,1), i = get(2,2);
+        return a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h;
+    } else {
+        throw std::logic_error("Implementar para 2x2 o 3x3");
+    }
 }

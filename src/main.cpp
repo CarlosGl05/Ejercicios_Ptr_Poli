@@ -10,18 +10,15 @@
 #include "MatrixOp.h"
 
 int main() {
-    MatrixOp M(3, 3);
+    IMatrix *mat = new MatrixOp(2, 2);
+    // Asignar valores
+    MatrixOp* mop = dynamic_cast<MatrixOp*>(mat);
+    mop->set(0, 0, 1);
+    mop->set(0, 1, 2);
+    mop->set(1, 0, 3);
+    mop->set(1, 1, 4);
 
-    double v = 10.5;
-    for (int i = 0; i < M.getRows(); ++i) {
-        for (int j = 0; j < M.getCols(); ++j) {
-            M.set(i, j, v);
-            v += 4.5; 
-        }
-    }
-
-    double maxElem = maxValue<double>(M.data(), M.size());
-    std::cout << "maximo " << maxElem << std::endl;
-
+    std::cout << "Determinante: " << mat->determinant() << "\n";
+    delete mat;
     return 0;
 }

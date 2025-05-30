@@ -5,8 +5,19 @@
 #include <string>
 #include <stdexcept>
 
-class MatrixOp {
+
+/**
+ * @brief Interfaz abstracta determinate.
+ */
+class IMatrix {
+public:
+    virtual ~IMatrix() = default;
+    virtual double determinant() const = 0;
+};
+
+class MatrixOp : public IMatrix{
    public:
+    double determinant() const override;
     MatrixOp(int rows, int cols);
     ~MatrixOp();
     void set(int i, int j, double v);
