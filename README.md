@@ -342,7 +342,7 @@ Sobrecarga de operadores en MatrixOp
 Relaciones de uso con punteros a función y a miembro
 
 Publicar el diagrama en el readme.md de tu repositorio de solución Pointer_Polimorf.
-
+```mermaid
 classDiagram
     class MatrixOpBase {
         <<abstract>>
@@ -378,7 +378,7 @@ classDiagram
     %% Relaciones de uso
     MatrixOp ..> "OpFunc" : usa
     MatrixOp ..> "void (MatrixOp::*fn)(int,int) const" : usa
-
+```
 > **Recomendación final:**
 > * Ejecuta un test de humo tras cada ejercicio para asegurar que la funcionalidad es la esperada.
 > * Recuerdar usar el proyecto base siguiente:
