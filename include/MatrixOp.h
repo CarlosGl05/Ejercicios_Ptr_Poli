@@ -12,6 +12,7 @@ class MatrixOp {
     double get(int i, int j) const;
     int getRows() const { return rows_; };
     int getCols() const { return cols_; };
+    void add(const MatrixOp *other, MatrixOp *result) const;
 
    private:
     double *data_;

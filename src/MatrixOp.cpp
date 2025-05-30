@@ -38,3 +38,16 @@ double MatrixOp::get(int i, int j) const {
         throw std::out_of_range("Index out of range.");
     return data_[i * cols_ + j];
 }
+// Add
+
+void MatrixOp::add(const MatrixOp *other, MatrixOp *result) const {
+    if (rows_ != other->getRows() || cols_ != other->getCols() ||
+        rows_ != result->getRows() || cols_ != result->getCols()) {
+        throw std::invalid_argument("Dimensiones diferentes.");
+    }
+    for (int i = 0; i < rows_; ++i) {
+        for (int j = 0; j < cols_; ++j) {
+            result->set(i, j, this->get(i, j) + other->get(i, j));
+        }
+    }
+}

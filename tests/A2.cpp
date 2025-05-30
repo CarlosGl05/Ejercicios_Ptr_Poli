@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Archivo principal para probar la clase MatrixOp.
+ * @brief Archivo para probar la funcion add
  * @author Carlos Andrés Gloria Cortes
  * @date 30/05/2025
  */
