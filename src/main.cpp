@@ -1,7 +1,8 @@
 /**
  * @file main.cpp
- * @brief Punto de entrada del programa.
- * @date YYYY-MM-DD
+ * @brief prueba de la clase matrix y funcionamiento del codigo
+ * @author Carlos Andrés Gloria Cortes
+ * @date 30/05/2025
  */
 
 #include <iostream>
