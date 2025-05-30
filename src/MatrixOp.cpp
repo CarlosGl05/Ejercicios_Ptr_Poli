@@ -51,3 +51,13 @@ void MatrixOp::add(const MatrixOp *other, MatrixOp *result) const {
         }
     }
 }
+
+// apply funcion generica
+
+void MatrixOp::apply(const MatrixOp *A, const MatrixOp *B, MatrixOp *out, OpFunc op) const {
+    for (int i = 0; i < A->getRows(); ++i) {
+        for (int j = 0; j < A->getCols(); ++j) {
+            out->set(i, j, op(A->get(i, j), B->get(i, j)));
+        }
+    }
+}   

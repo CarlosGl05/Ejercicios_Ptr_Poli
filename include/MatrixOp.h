@@ -13,6 +13,8 @@ class MatrixOp {
     int getRows() const { return rows_; };
     int getCols() const { return cols_; };
     void add(const MatrixOp *other, MatrixOp *result) const;
+    using OpFunc = double(*)(double, double);
+    void apply(const MatrixOp *A, const MatrixOp *B, MatrixOp *out, OpFunc op) const;
 
    private:
     double *data_;
