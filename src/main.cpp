@@ -28,5 +28,7 @@ int main() {
     // Mostrar el número de filas y columnas
     std::cout << "Número de filas: " << M.getRows() << std::endl;
     std::cout << "Número de columnas: " << M.getCols() << std::endl;
-    return 0;  // Indicar que el programa terminó correctamente
+    MatrixOp m(3, 3);
+    m.set(1, 2, 42.5); // Asigna un valor
+    std::cout << "Valor en (1,2): " << m.get(1, 2) << std::endl;
 }

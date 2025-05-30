@@ -22,8 +22,8 @@ MatrixOp::MatrixOp(int rows, int cols)
     }
 }
 MatrixOp::~MatrixOp() {
-    delete[] data_;   // Free allocated memory
-    data_ = nullptr;  // Avoid dangling pointer
+    delete[] data_;  
+    data_ = nullptr;  
 }
 
 // Setter
