@@ -18,6 +18,9 @@ class MatrixOp {
     void forEachDiagonal(void (MatrixOp::*fn)(int i, int j) const) const;
     void printAt(int i, int j) const;
 
+    MatrixOp operator+(const MatrixOp &other) const;
+    MatrixOp operator-(const MatrixOp &other) const;
+
    private:
     double *data_;
     int rows_;

@@ -76,3 +76,27 @@ void MatrixOp::forEachDiagonal(void (MatrixOp::*fn)(int i, int j) const) const {
 void MatrixOp::printAt(int i, int j) const {
     std::cout << get(i, j) << " ";
 }
+
+MatrixOp MatrixOp::operator+(const MatrixOp &other) const {
+    if (rows_ != other.getRows() || cols_ != other.getCols()) {
+        throw std::invalid_argument("Dimensiones incompatibles");
+    }
+    MatrixOp result(rows_, cols_);
+    int total = rows_ * cols_;
+    for (int k = 0; k < total; ++k) {
+        result.data_[k] = this->data_[k] + other.data_[k];
+    }
+    return result;
+}
+
+MatrixOp MatrixOp::operator-(const MatrixOp &other) const {
+    if (rows_ != other.getRows() || cols_ != other.getCols()) {
+        throw std::invalid_argument("Dimensiones incompatibles");
+    }
+    MatrixOp result(rows_, cols_);
+    int total = rows_ * cols_;
+    for (int k = 0; k < total; ++k) {
+        result.data_[k] = this->data_[k] - other.data_[k];
+    }
+    return result;
+}
