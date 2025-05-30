@@ -343,6 +343,42 @@ Relaciones de uso con punteros a función y a miembro
 
 Publicar el diagrama en el readme.md de tu repositorio de solución Pointer_Polimorf.
 
+classDiagram
+    class MatrixOpBase {
+        <<abstract>>
+        +~MatrixOpBase()
+        +virtual double determinant() const = 0
+    }
+
+    class MatrixOp {
+        +MatrixOp(int rows, int cols)
+        +~MatrixOp()
+        +void set(int i, int j, double v)
+        +double get(int i, int j) const
+        +int getRows() const
+        +int getCols() const
+        +void add(const MatrixOp *other, MatrixOp *result) const
+        +void apply(const MatrixOp *A, const MatrixOp *B, MatrixOp *out, OpFunc op) const
+        +void forEachDiagonal(void (MatrixOp::*fn)(int i, int j) const) const
+        +void printAt(int i, int j) const
+        +MatrixOp operator+(const MatrixOp &other) const
+        +MatrixOp operator-(const MatrixOp &other) const
+        +const double* data() const
+        +int size() const
+        +double determinant() const
+        -- 
+        -double* data_
+        -int rows_
+        -int cols_
+        +using OpFunc = double(*)(double, double)
+    }
+
+    MatrixOpBase <|-- MatrixOp
+
+    %% Relaciones de uso
+    MatrixOp ..> "OpFunc" : usa
+    MatrixOp ..> "void (MatrixOp::*fn)(int,int) const" : usa
+
 > **Recomendación final:**
 > * Ejecuta un test de humo tras cada ejercicio para asegurar que la funcionalidad es la esperada.
 > * Recuerdar usar el proyecto base siguiente:
